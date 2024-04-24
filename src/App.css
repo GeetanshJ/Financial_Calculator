@@ -1,0 +1,306 @@
+/* Combined CSS */
+
+/* Common styles */
+.background {
+  background-image: linear-gradient(120deg, #2980b9, #3498db);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form-wrapper {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.form-wrapper h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.form-wrapper input[type="text"],
+.form-wrapper input[type="password"],
+.form-wrapper input[type="email"],
+.form-wrapper input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-wrapper input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.form-wrapper input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.toggle-form {
+  text-align: center;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.login-form,
+.register-form {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result {
+  margin-top: 20px;
+  text-align: center;
+}
+/* EmiCalculator.css */
+
+.calculate-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.calculate-button:hover {
+  background-color: #0056b3;
+}
+
+
+
+/* DebtToIncomeRatioCalculator.css */
+
+.dti-container {
+  background-image: linear-gradient(120deg, #2980b9, #3498db);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dti-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dti-form-wrapper {
+  width: 300px;
+}
+
+.dti-form-wrapper h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.dti-form-wrapper div {
+  margin-bottom: 20px;
+}
+
+.dti-form-wrapper label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.dti-form-wrapper input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.calculate-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.calculate-button:hover {
+  background-color: #0056b3;
+}
+
+.dti-result {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.dti-result p {
+  margin: 0;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.dti-result.low {
+  background-color: #90ee90; /* Light green for low DTI */
+}
+
+.dti-result.moderate {
+  background-color: #ffff66; /* Yellow for moderate DTI */
+}
+
+.dti-result.high {
+  background-color: #ff7f7f; /* Light red for high DTI */
+}
+/* Home.css */
+
+.home-container {
+  background-image: linear-gradient(120deg, #2980b9, #3498db);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.home-container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.home-container p {
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 40px;
+}
+
+.tool-links {
+  display: flex;
+  justify-content: center;
+}
+
+.tool-links a {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.tool-links a:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+/* App.css */
+
+.container {
+  background-image: linear-gradient(120deg, #2980b9, #3498db);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form-wrapper {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.form-wrapper h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.form-wrapper label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-wrapper input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-wrapper button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-wrapper button:hover {
+  background-color: #0056b3;
+}
+
+.result {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.result p {
+  margin: 0;
+  padding: 10px;
+  border-radius: 4px;
+}
