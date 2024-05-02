@@ -21,7 +21,7 @@ function SIPCalculator() {
     };
 
     return (
-        <div className="container">
+        <div className="container2">
             <div className="form-wrapper">
                 <h2>SIP Calculator</h2>
                 <div>

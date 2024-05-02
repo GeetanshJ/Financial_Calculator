@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 function Home() {
     return (
         <div className="home-container">
-            <h1>Welcome to Money Mentor</h1>
+            <img src = "./logo.jpg" style ={{width:"100px",height:"auto",marginLeft:"-1300px",marginTop:"-400px",borderRadius:"50%"}}/>
+            <h1>Welcome to Money Mentor </h1>
             <p>
                 We offer a variety of financial calculators to help you manage your finances effectively.
                 Whether you're planning to take out a loan or evaluating your debt-to-income ratio,

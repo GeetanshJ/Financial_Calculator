@@ -1,23 +1,39 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
 function LoginPage() {
     const nav = useNavigate();
-    const [isLoginForm, setIsLoginForm] = useState(true);
     const [formData, setFormData] = useState({
         username: '',
         password: ''
     });
+    const [isLoginForm, setIsLoginForm] = useState(false);
 
-    const toggleForm = () => {
-        setIsLoginForm(!isLoginForm);
-    };
-
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        if (isLoginForm) {
-            nav('./Home')
-        } else {
+        try {
+            const response = await axios.post(`http://localhost:8000/auth/${isLoginForm ? 'login' : 'register'}`, formData);
+            // console.log(response.data.user.uid)/
+
+
+            if (response.status === 200) {
+                if (!isLoginForm) {
+                    window.alert("Registration done");
+                
+                }
+                if (isLoginForm) {
+                    localStorage.setItem("user", response.data.user.uid);
+                    console.log(localStorage.getItem("user"));
+                    // localStorage.removeItem();
+                    nav('/Home');
+                }
+            }
+        } catch (error) {
+            if (isLoginForm) {
+                window.alert("Invalid credentials");
+            } else {
+                window.alert("Registration failed");
+            }
         }
     };
 
@@ -26,10 +42,15 @@ function LoginPage() {
         setFormData({ ...formData, [name]: value });
     };
 
+    const toggleForm = () => {
+        setIsLoginForm(!isLoginForm);
+    };
+
     return (
         <div className="background">
             <div className="form-container">
-                <div className={`form-wrapper ${isLoginForm ? 'login-form' : 'register-form'}`}>
+                
+                <div className={`form-wrapper ${isLoginForm ? 'login' : 'register'}`}>
                     <h2>{isLoginForm ? 'Login' : 'Register'}</h2>
                     <form onSubmit={handleSubmit}>
                         <input
@@ -48,10 +69,9 @@ function LoginPage() {
                             onChange={handleInputChange}
                             required
                         />
-                    
-                        <input type="submit" value={isLoginForm ? 'Login' : 'Register'} />
+                        <input type="submit" value={isLoginForm ? 'login' : 'register'} />
                     </form>
-                    <p onClick={toggleForm} className="toggle-form">
+                    <p onClick={toggleForm} style={{ cursor: 'pointer' }}>
                         {isLoginForm ? 'Don\'t have an account? Register here.' : 'Already have an account? Login here.'}
                     </p>
                 </div>
