@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import "./Login.css"
 function LoginPage() {
     const nav = useNavigate();
     const [formData, setFormData] = useState({
@@ -13,15 +14,13 @@ function LoginPage() {
         event.preventDefault();
         try {
             const response = await axios.post(`http://localhost:8000/auth/${isLoginForm ? 'login' : 'register'}`, formData);
-            // console.log(response.data.user.uid)/
-
-
-            if (response.status === 200) {
+            console.log(response.data.user.uid);
+    
+            if (response.status === 201) {
                 if (!isLoginForm) {
-                    window.alert("Registration done");
-                
+                window.alert("Registered");
                 }
-                if (isLoginForm) {
+                else if (isLoginForm) {
                     localStorage.setItem("user", response.data.user.uid);
                     console.log(localStorage.getItem("user"));
                     // localStorage.removeItem();
@@ -30,12 +29,13 @@ function LoginPage() {
             }
         } catch (error) {
             if (isLoginForm) {
-                window.alert("Invalid credentials");
+                window.alert("Invalid Details");
             } else {
-                window.alert("Registration failed");
+                window.alert("Registration Done");
             }
         }
     };
+    
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;

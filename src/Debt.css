@@ -1,0 +1,97 @@
+.background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #0077ff, #fff700);
+}
+
+.form-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.form-wrapper h2 {
+    padding: 20px 20px;
+    color: #333;
+}
+
+.form-wrapper div {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-wrapper label {
+    margin: 5px 20px;
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-wrapper input[type="number"] {
+    width: 70%;
+    padding: 10px;
+    margin: 5px 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background: #f9f9f9;
+    transition: background 0.3s ease;
+}
+
+.form-wrapper input[type="number"]:focus {
+    background: #fff;
+    border-color: #43cea2;
+    outline: none;
+}
+
+.calculate-button {
+    background: #43cea2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 16px;
+}
+
+.calculate-button:hover {
+    background: #185a9d;
+}
+
+.ratio-result {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.ratio-result p {
+    margin: 0;
+}
+
+.history-list {
+    list-style-type: none;
+    overflow: scroll;
+    padding: 0;
+    margin: 0;
+}
+
+.history-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    overflow: scroll;
+
+    color: #555;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
