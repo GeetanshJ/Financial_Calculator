@@ -1,41 +1,48 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import "./Login.css"
+import "./Login.css";
+
 function LoginPage() {
     const nav = useNavigate();
     const [formData, setFormData] = useState({
-        username: '',
+        email: '',
         password: ''
     });
     const [isLoginForm, setIsLoginForm] = useState(false);
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    const handleLogin = async () => {
         try {
-            const response = await axios.post(`http://localhost:8000/auth/${isLoginForm ? 'login' : 'register'}`, formData);
+            const response = await axios.post('http://localhost:8000/auth/login', formData);
             console.log(response.data.user.uid);
-    
-            if (response.status === 201) {
-                if (!isLoginForm) {
-                window.alert("Registered");
-                }
-                else if (isLoginForm) {
-                    localStorage.setItem("user", response.data.user.uid);
-                    console.log(localStorage.getItem("user"));
-                    // localStorage.removeItem();
-                    nav('/Home');
-                }
-            }
+
+                localStorage.setItem("user", response.data.user.uid);
+                nav('/Home');
+            
         } catch (error) {
-            if (isLoginForm) {
-                window.alert("Invalid Details");
-            } else {
-                window.alert("Registration Done");
-            }
+            window.alert("Invalid Details");
         }
     };
-    
+
+    const handleRegister = async () => {
+        try {
+            const response = await axios.post('http://localhost:8000/auth/register', formData);
+            if (response.status === 201) {
+                window.alert("Registered");
+            }
+        } catch (error) {
+            window.alert("Registration Failed");
+        }
+    };
+
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        if (isLoginForm) {
+            handleLogin();
+        } else {
+            handleRegister();
+        }
+    };
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -47,17 +54,17 @@ function LoginPage() {
     };
 
     return (
-        <div className="background">
+        <div className="background5">
             <div className="form-container">
-                
+
                 <div className={`form-wrapper ${isLoginForm ? 'login' : 'register'}`}>
                     <h2>{isLoginForm ? 'Login' : 'Register'}</h2>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleFormSubmit}>
                         <input
-                            type="text"
-                            name="username"
-                            placeholder="Username"
-                            value={formData.username}
+                            type="email"
+                            name="email"
+                            placeholder="email"
+                            value={formData.email}
                             onChange={handleInputChange}
                             required
                         />

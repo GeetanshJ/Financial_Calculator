@@ -52,7 +52,7 @@ function EmiCalculator({ userId }) {
     }, [userId]);
 
     return (
-        <div className="background">
+        <div className="background2">
             <div className="form-container">
                 <div className="form-wrapper">
                     <h2>EMI Calculator</h2>

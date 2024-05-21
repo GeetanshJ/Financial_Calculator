@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Sip.css'; 
+import './Sip.css';
 
 function SIPCalculator() {
     const [investmentAmount, setInvestmentAmount] = useState('');
@@ -10,11 +10,23 @@ function SIPCalculator() {
     const [sipHistory, setSipHistory] = useState([]);
 
     useEffect(() => {
+        const fetchSipHistory = () => {
+            axios.get(`http://localhost:8000/sip/${localStorage.getItem("user")}`)
+                .then((response) => {
+                    console.log(sipHistory)
+
+                    setSipHistory(response.data.sip);
+                })
+                .catch((error) => {
+                    console.error('Error fetching SIP history:', error);
+                });
+        };
+
         fetchSipHistory();
-    }, []);
+    }, [sipHistory]);
 
     const calculateMaturityAmount = (e) => {
-        e.preventDefault(); // Prevent default form submission
+        e.preventDefault();
 
         const P = parseFloat(investmentAmount);
         const n = parseFloat(numberOfPayments);
@@ -25,34 +37,20 @@ function SIPCalculator() {
             const maturityAmountValue = M.toFixed(2);
             setMaturityAmount(maturityAmountValue);
 
-            try {
-                axios.post('http://localhost:8000/sip/add', {
-                    uid: localStorage.getItem('user'),
-                    investmentAmount: investmentAmount,
-                    numberOfPayments: numberOfPayments,
-                    interestRate: interestRate,
-                    maturityAmount: maturityAmountValue,
-                }).then(() => {
-                    fetchSipHistory();
-                });
-            } catch (error) {
-                console.error('Error:', error);
-            }
+            axios.post('http://localhost:8000/sip/add', {
+                uid: localStorage.getItem('user'),
+                investmentAmount: investmentAmount,
+                numberOfPayments: numberOfPayments,
+                interestRate: interestRate,
+                maturityAmount: maturityAmountValue,
+            })
+
+
         } else {
             setMaturityAmount('');
         }
     };
 
-    const fetchSipHistory = () => {
-        try {
-            axios.get(`http://localhost:8000/sip/${localStorage.getItem("user")}`)
-                .then((response) => {
-                    setSipHistory(response.data.sip);
-                });
-        } catch (error) {
-            console.error('Error fetching SIP history:', error);
-        }
-    };
 
     return (
         <div className="background">
@@ -72,6 +70,7 @@ function SIPCalculator() {
                             <label>Interest Rate (%):</label>
                             <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} />
                         </div>
+
                         <button className="calculate-button" type="submit">Calculate Maturity Amount</button>
                     </form>
                     {maturityAmount && <p>Maturity Amount: {maturityAmount}</p>}
@@ -79,12 +78,14 @@ function SIPCalculator() {
                 <div className="loan-history">
                     <h3>SIP History</h3>
                     <ul>
-                        {sipHistory.map((entry, index) => (
-                            <li key={index}>
+                        {sipHistory.map((entry) => (
+                            <li key={entry.id}>
                                 Investment Amount: {entry.investmentAmount}, Number of Payments: {entry.numberOfPayments}, Interest Rate: {entry.interestRate}%, Maturity Amount: {entry.maturityAmount}
                             </li>
                         ))}
                     </ul>
+
+
                 </div>
             </div>
         </div>

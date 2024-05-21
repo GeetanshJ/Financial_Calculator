@@ -10,11 +10,15 @@ html {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(to right, #435cce, #189d35);
+    background: url('../public/sip.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .form-container {
-    background: #fff;
+    background: rgba(229, 225, 225, 0.5);
+        backdrop-filter: blur(10px); 
+
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 40px;
@@ -23,6 +27,7 @@ html {
     max-height: 700px;
     text-align: center;
     overflow-y: hidden;
+
 }
 
 .form-wrapper h2 {
@@ -80,10 +85,10 @@ html {
 }
 
 .loan-history {
+    backdrop-filter: blur(10px); 
     margin-top: 20px;
-    max-height: 200px; /* Limit height and make it scrollable */
+    max-height: 200px; 
     overflow-y: scroll;
-    background: #f9f9f9;
     padding: 15px;
     border-radius: 5px;
     border: 1px solid #ccc;

@@ -16,6 +16,8 @@ function Home() {
                 <Link to="/Loan" className="tool-link loan">EMI Calculator</Link>
                 <Link to="/Debt" className="tool-link debt">Debt-to-Income Ratio Calculator</Link>
                 <Link to="/Sip" className="tool-link sip">SIP Calculator</Link>
+                <Link to="/Retirement" className="tool-link retirement">Retirement Plan</Link>
+
             </div>
         </div>
     );

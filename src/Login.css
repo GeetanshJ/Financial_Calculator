@@ -5,7 +5,7 @@ body, html {
     font-family: Arial, Helvetica, sans-serif;
   }
   
-  .background {
+  .background5 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,7 +21,7 @@ body, html {
     width: 100vh;
     max-width: 400px;
     text-align: center;
-  }
+  } 
   
   .form-wrapper h2 {
     margin-bottom: 20px;
@@ -33,7 +33,7 @@ body, html {
     flex-direction: column;
   }
   
-  .form-wrapper input[type="text"],
+  .form-wrapper input[type="email"],
   .form-wrapper input[type="password"],
   .form-wrapper input[type="submit"] {
     padding: 10px;

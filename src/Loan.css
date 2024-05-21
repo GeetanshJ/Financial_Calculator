@@ -4,11 +4,13 @@ body, html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.background {
+.background2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #43cea2, #185a9d);
+    background:url("../public/emi.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .form-container {

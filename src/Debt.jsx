@@ -48,7 +48,7 @@ function DebtToIncomeRatioCalculator({ userId }) {
     }, [userId]);
 
     return (
-        <div className="background">
+        <div className="background1">
             <div className="form-container">
                 <div className="form-wrapper">
                     <h2>Debt-to-Income Ratio Calculator</h2>

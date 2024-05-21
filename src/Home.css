@@ -41,3 +41,7 @@
 .tool-link:hover {
     opacity: 0.9; 
 }
+
+.tool-link.retirement{
+    background-color: #ff8400;
+}

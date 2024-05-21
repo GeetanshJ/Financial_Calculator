@@ -5,7 +5,7 @@ import Loan from './Loan'
 import Debt from './Debt'
 import Home from './Home'
 import Sip from './Sip'
-
+import Retirement from './Retirement';
 function App() {
   return (
     <div className="App">
@@ -16,6 +16,7 @@ function App() {
           <Route path="/Loan" element={<Loan />} />
           <Route path="/Debt" element={<Debt />} />
           <Route path="/Sip" element={<Sip />} />
+          <Route path="/Retirement" element={<Retirement />} />
 
         </Routes>
       </BrowserRouter>
